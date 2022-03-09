@@ -62,22 +62,20 @@ var showWeather = function(weather, searchCity){
     tempEl.textContent = "Temperature: " + weather.main.temp + " °F";
     tempEl.classList = "list-group-item"
 
-    var humidityEl = document.createElement("span");
-    humidityEl.textContent = "Humidity: " + weather.main.humidity + " %";
-    humidityEl.classList = "list-group-item"
- 
-
     var windSpeedEl = document.createElement("span");
     windSpeedEl.textContent = "Wind Speed: " + weather.wind.speed + " MPH";
     windSpeedEl.classList = "list-group-item"
- 
+
+    var humidityEl = document.createElement("span");
+    humidityEl.textContent = "Humidity: " + weather.main.humidity + " %";
+    humidityEl.classList = "list-group-item"
 
     presentWeatherContainerEl.appendChild(tempEl);
 
+    presentWeatherContainerEl.appendChild(windSpeedEl);
+
     presentWeatherContainerEl.appendChild(humidityEl);
 
-    presentWeatherContainerEl.appendChild(windSpeedEl);
- 
     var lat = weather.coord.lat;
     var lon = weather.coord.lon;
     getUvIndex(lat,lon)
